@@ -526,6 +526,8 @@
                 
                         <li><a style="padding-left:30px;" href="tutorial-polyline-dynamic.example.html">클릭한 지점 폴리라인 연결하기</a></li>
                 
+                        <li><a style="padding-left:30px;" href="tutorial-polyline-route.example.html">폴리라인 서울 부산 자전거 길찾기 테스트</a></li>
+                
                         <li><a style="padding-left:30px;" href="tutorial-polyline.example.html">폴리라인 테스트</a></li>
                 
                         <li><a style="padding-left:30px;" href="tutorial-shape-measures.example.html">폴리라인, 폴리곤의 거리/면적 재기</a></li>
@@ -651,7 +653,12 @@
     <p>폴리라인 생성과 제거하는 예제입니다.</p>
     <div style="display: block; position: relative; width:100%; height:40px; margin-bottom: 18px;">
         <div style="display: inline;">
-            <button style="padding: 10px;" id="create" class="btn">CREATE</button>
+            <button style="padding: 10px;" id="create5" class="btn">CREATE</button>
+            <button style="padding: 10px;" id="create10" class="btn">CREATE</button>
+            <button style="padding: 10px;" id="create20" class="btn">CREATE</button>
+            <button style="padding: 10px;" id="create50" class="btn">CREATE</button>
+            <button style="padding: 10px;" id="create100" class="btn">CREATE</button>
+            <button style="padding: 10px;" id="create145" class="btn">CREATE</button>
             <button style="padding: 10px;" id="remove" class="btn">REMOVE</button>
         </div>
     </div>
@@ -10313,7 +10320,7 @@
     ];
 </script>
 <script id="code">
-    var MAX = busLines.length,
+    var MAX = 50,
         lines = [],
         bounds,
         boundsRect;
