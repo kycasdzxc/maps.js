@@ -9730,8 +9730,8 @@
             bounds: bounds,
             fillOpacity: 0.2,
             strokeOpacity: 0.2,
-            strokeColor: '#00ff00',
-            fillColor: '#00ff00',
+            strokeColor: '#E16E79',
+            fillColor: '#E16E79',
         });
         map.panToBounds(bounds);
         console.log('lines', lines);
@@ -9739,7 +9739,7 @@
         console.log('lines.length', lines.length);
     }
     function remove() {
-        if (!map || !lines) return;
+        if (!map || !lines || !boundsRect) return;
         lines.map(line => {
             line.setMap(null);
         });
