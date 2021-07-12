@@ -651,15 +651,15 @@
 <div id="wrap" class="section">
     <h2>Polyline 생성 및 삭제</h2>
     <p>폴리라인 생성과 제거하는 예제입니다.</p>
-    <div style="display: block; position: relative; width:100%; max-height:120px; margin-bottom: 18px;">
+    <div style="display: block; position: relative; width:100%; max-height:120px; margin-bottom: 18px; padding:10px 10px;">
         <div style="display: inline;">
-            <button style="padding: 10px;" id="create5" class="btn">CREATE</button>
-            <button style="padding: 10px;" id="create10" class="btn">CREATE</button>
-            <button style="padding: 10px;" id="create20" class="btn">CREATE</button>
-            <button style="padding: 10px;" id="create50" class="btn">CREATE</button>
-            <button style="padding: 10px;" id="create100" class="btn">CREATE</button>
-            <button style="padding: 10px;" id="create145" class="btn">CREATE</button>
-            <button style="padding: 10px;" id="remove" class="btn">REMOVE</button>
+            <button id="create5" class="btn">CREATE 5</button>
+            <button id="create10" class="btn">CREATE 10</button>
+            <button id="create20" class="btn">CREATE 20</button>
+            <button id="create50" class="btn">CREATE 50</button>
+            <button id="create100" class="btn">CREATE 100</button>
+            <button id="create145" class="btn">CREATE 145</button>
+            <button id="remove" class="btn">REMOVE</button>
         </div>
     </div>
     <div id="map" style="width:100%;height:600px;"></div>
@@ -10320,8 +10320,7 @@
     ];
 </script>
 <script id="code">
-    var MAX = 50,
-        lines = [],
+    var lines = [],
         bounds,
         boundsRect;
 
@@ -10335,10 +10334,18 @@
         }
     });
 
-    $('#create').on('click', function() {
+    $('[id^="create"]').on('click', function() {
+        var createCount = parseInt($(this).attr('id').replace(/[^0-9]/g, ''));
+        create(createCount);
+    });
+
+    $('#remove').on('click', remove);
+
+    function create(max) {
         if (!map) return;
+        remove();
         bounds = null;
-        lines = busLines.slice(0, MAX).map(b => {
+        lines = busLines.slice(0, max).map(b => {
             return new naver.maps.Polyline({
                 map,
                 path: b.path.flat(),
@@ -10363,9 +10370,8 @@
         console.log('lines', lines);
         console.log('bounds', bounds);
         console.log('lines.length', lines.length);
-    });
-
-    $('#remove').on('click', function() {
+    }
+    function remove() {
         if (!map || !lines) return;
         lines.map(line => {
             line.setMap(null);
@@ -10374,7 +10380,7 @@
         lines = [];
         boundsRect.setMap(null);
         bounds = null;
-    });
+    }
 </script>
 
 

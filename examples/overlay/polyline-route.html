@@ -18,11 +18,11 @@
 <div id="wrap" class="section">
     <h2>Polyline 성능 테스트</h2>
     <p>서울 부산 자전거 라우트 테스트</p>
-    <div style="display: block; position: relative; width:100%; height:40px; margin-bottom: 18px;">
-        <div style="display: inline;">
-            <button style="padding: 10px;" id="drawSingle" class="btn">단일 폴리라인으로 그리기</button>
-            <button style="padding: 10px;" id="drawMulti" class="btn">멀티 폴리라인으로 그리기</button>
-            <button style="padding: 10px;" id="remove" class="btn">폴리라인 삭제</button>
+    <div style="display:block; position:relative; width:100%; max-height:120px; margin-bottom:18px;">
+        <div style="display:inline;">
+            <button style="padding:10px 10px;" id="drawSingle" class="btn">단일 폴리라인으로 그리기</button>
+            <button style="padding:10px 10px;" id="drawMulti" class="btn">멀티 폴리라인으로 그리기</button>
+            <button style="padding:10px 10px;" id="remove" class="btn">폴리라인 삭제</button>
         </div>
     </div>
     <div id="map" style="width:100%;height:600px;"></div>
@@ -74,6 +74,7 @@
 
     function drawSingle() {
         if (!map) return;
+        remove();
         cacheSteps ? polyLines = drawSinglePolyline(cacheSteps) : loadRoute(function (result) {
             loadSuccess(result, drawSinglePolyline);
         });
@@ -81,6 +82,7 @@
 
     function drawMulti() {
         if (!map) return;
+        remove();
         cacheSteps ? polyLines = drawMultiPolyline(cacheSteps) : loadRoute(function (result) {
             loadSuccess(result, drawMultiPolyline);
         });
