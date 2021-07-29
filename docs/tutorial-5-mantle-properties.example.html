@@ -1678,7 +1678,7 @@ naver.maps.Event.once(map, 'init_stylemap', function(e) {
     });
 
     map.data.addListener('mouseout', function(e) {
-        map.data.revertStyle(feature);
+        map.data.revertStyle();
     });
 });
 
