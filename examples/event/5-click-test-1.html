@@ -10,66 +10,6 @@
     <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=orK7_YeBAdN64OJ8HUVz&amp;submodules=panorama"></script>
     <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
-    <style>
-        .cs_mapbridge .map_group .map_marker{position:absolute;width:20px;height:20px;z-index:5}
-        .cs_mapbridge .map_group .map_marker[class*=_big]{z-index:6}
-        .cs_mapbridge .map_group .map_marker .ico{position:absolute;background:url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/map_bridge/im/sp_mapbridge5.png) no-repeat;background-size:400px 450px;-webkit-background-size:400px 450px;z-index:10}
-        .cs_mapbridge .map_group .map_marker .ico:after{position:absolute;top:-5px;right:-5px;bottom:-5px;left:-5px;background-color:transparent;content:'';z-index:30}
-        .cs_mapbridge .map_group .map_marker .shd{position:absolute;top:0;left:0;background:url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/map_bridge/im/sp_mapbridge5.png) no-repeat;background-size:400px 450px;-webkit-background-size:400px 450px;content:''}
-        .cs_mapbridge .map_marker.hp .ico{width:26px;height:36px;background-position:-175px 0;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .map_marker.hp_big .ico{width:38px;height:58px;background-position:-175px -45px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        .cs_mapbridge .map_marker.hp_big .shd{top:24px;left:8px;width:38px;height:34px;background-position:-175px -105px;background-size:400px 450px;-webkit-background-size:400px 450px}
-        .cs_mapbridge .map_marker.tvhp .ico{width:26px;height:36px;background-position:-210px 0;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .map_marker.tvhp_big .ico{width:38px;height:58px;background-position:-220px -45px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        .cs_mapbridge .map_marker.tvhp_big .shd{top:24px;left:8px;width:38px;height:34px;background-position:-220px -105px;background-size:400px 450px;-webkit-background-size:400px 450px}
-        .cs_mapbridge .crs .map_marker[class*=_big] .shd{top:24px;left:8px;width:38px;height:34px;background-position:-50px -270px;background-size:400px 450px;-webkit-background-size:400px 450px}
-        .cs_mapbridge .crs .map_marker .ico{width:25px;height:36px}
-        .cs_mapbridge .crs .map_marker.num1 .ico{background-position:-5px -215px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .crs .map_marker.num2 .ico{background-position:-35px -215px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .crs .map_marker.num3 .ico{background-position:-65px -215px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .crs .map_marker.num4 .ico{background-position:-95px -215px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .crs .map_marker.num5 .ico{background-position:-125px -215px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .crs .map_marker.num6 .ico{background-position:-278px -387px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .crs .map_marker.num7 .ico{background-position:-305px -387px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .crs .map_marker.num8 .ico{background-position:-334px -387px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-        .cs_mapbridge .crs .map_marker[class*=_big] .ico{width:38px;height:58px}
-        .cs_mapbridge .crs .map_marker.num1_big .ico{background-position:-160px -215px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        .cs_mapbridge .crs .map_marker.num2_big .ico{background-position:-205px -215px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        .cs_mapbridge .crs .map_marker.num3_big .ico{background-position:-250px -215px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        .cs_mapbridge .crs .map_marker.num4_big .ico{background-position:-295px -215px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        .cs_mapbridge .crs .map_marker.num5_big .ico{background-position:-5px -260px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        .cs_mapbridge .crs .map_marker.num6_big .ico{background-position:-140px -387px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        .cs_mapbridge .crs .map_marker.num7_big .ico{background-position:-185px -387px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        .cs_mapbridge .crs .map_marker.num8_big .ico{background-position:-231px -387px;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-        /* Pin */
-        .pin_city,.pin_place{position:absolute}
-        .pin_city  a{display:block}
-        .pin_city .city_nv{width:70px;height:60px}
-        .pin_city .city_nv .city_tit{overflow:hidden;display:block;width:100%;height:21px;border:1px solid #4b7bdf;border-radius:3px 3px 0 0;background-color:#5b8bef;font-size:12px;color:#fff;white-space:nowrap;box-sizing:border-box;-webkit-box-sizing:border-box;text-overflow:ellipsis;text-align:center}
-        .pin_city .city_nv .city_info{position:relative;height:39px;padding:4px 0 4px 5px;border:1px solid rgba(0,0,0,.3);border-top:0;border-radius:0 0 3px 3px;background-color:#fff;font-size:12px;line-height:15px;box-shadow:0 1px 1px rgba(0,0,0,.15);box-sizing:border-box;-webkit-box-sizing:border-box}
-        .pin_city .city_nv .city_info dt{float:left;clear:both;margin-right:5px;color:#999}
-        .pin_city .city_nv .city_info dd{overflow:hidden;color:#333}
-        .pin_city .city_nv .city_info:after{display:block;position:absolute;left:50%;bottom:-11px;width:16px;height:11px;margin-left:-8px;background:url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/sunrise/im/im_map_lst2.png) no-repeat 0 -123px;background-size:50px 301px;-webkit-background-size:50px 301px;content:''}
-        .pin_place .place_nv{display:block;position:relative;border:1px solid rgba(0,0,0,.3);border-radius:3px;background-color:#fff;font-size:12px;line-height:23px;color:#333}
-        .pin_place .place_nv:after{display:block;position:absolute;left:50%;bottom:-22px;width:14px;height:22px;margin-left:-7px;background:url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/sunrise/im/im_map_lst2.png) no-repeat -36px -123px;background-size:50px 301px;-webkit-background-size:50px 301px;content:''}
-        .pin_place .place_nv a{display:block;padding:0 7px;box-sizing:border-box;-webkit-box-sizing:border-box}
-        .pin_dot{display:block;width:22px;height:22px;margin:3px auto 0;background:url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/sunrise/im/im_map_lst2.png) no-repeat -50px -301px;background-size:50px 301px;-webkit-background-size:50px 301px}
-        .pin_city .pin_dot{background-position:0 -86px}
-        .pin_place .pin_dot{background-position:-28px -86px}
-
-        .map_staxmarker{position:absolute;z-index:20;height:45px;font-size:14px}
-        .map_staxmarker > span{display:block;height:26px;padding:0 10px;border:1px solid #b5b8c5;background-color:rgba(255,255,255,.95);line-height:26px;color:#000;white-space:nowrap;box-shadow:none}
-        .map_staxmarker:after{position:absolute;top:27px;left:50%;width:8px;height:7px;margin-left:-4px;background:url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/taxi/im/sp_taxi4.png) no-repeat -10px -10px;background-size:125px 115px;content:''}
-        .map_staxmarker:before{position:absolute;top:36px;left:50%;width:17px;height:17px;margin-left:-9px;background:url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/taxi/im/sp_taxi4.png) no-repeat -35px -45px;background-size:125px 115px;content:''}
-
-        .spmc {display:inline-block;overflow:hidden;background:url(https://ssl.pstatic.net/static/maps/img/sp_mapctrl_high-fs8_v10.png) no-repeat;line-height:999px;vertical-align:top}
-        .map_ctrl .mc_legend .spmc{display:block}
-
-        .pin_s{position:absolute}
-        .pin_s .btn_clear{position:absolute;top:-16px;right:-16px;width:16px;height:16px;background-position:-144px -270px}
-        .alert_report p{padding:28px 15px 15px;color:#030303;line-height:18px;}
-        .pin_s_tooltip span{position:absolute;top:13px;left:-5px;display:inline-block;width:5px;height:8px;background:url(https://ssl.pstatic.net/static/maps/img/icons/pin_s_tooltip_arr.png)}
-    </style>
 </head>
 <body>
 
@@ -77,16 +17,9 @@
 
 <div id="wrap" class="section">
     <h2>클릭 테스트 1</h2>
-    <div id="map" style="width:810px;height:600px;display:inline-block;"></div>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
 </div>
-
-<script>
-    $(window).on('load', function() {
-        window.setTimeout(function() {
-            $(window).off('resize');
-        }, 10);
-    });
-</script>
 <script id="code">
 
     var boundary = naver.maps.LatLngBounds.bounds(new naver.maps.LatLng(37.3506097, 127.0907733), new naver.maps.LatLng(37.3797225, 127.1776344));
@@ -328,6 +261,6 @@
 
 
 </script>
+
 </body>
 </html>
-
