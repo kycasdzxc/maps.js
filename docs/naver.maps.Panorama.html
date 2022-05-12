@@ -426,8 +426,6 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-4-event-test.example.html">이벤트 테스트</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-5-event-test.example.html">사파리 클릭 테스트</a></li>
-                
                         <li><a href="tutorial-digest.example.html#컨트롤" class="_cat" style="padding-left:10px" >컨트롤</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-control-simple.example.html">지도 컨트롤 추가/제거하기</a></li>
@@ -5165,6 +5163,40 @@ naver.maps.Event.addListener(pano, &quot;pov_changed&quot;, function() {
 
         <tr>
             
+                <td class="name"><code>flightSpot</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#boolean">boolean</a> -->
+    <a href="global.html#boolean">boolean</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last"><p>주변 항공뷰 아이콘 표시 여부입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>logoControl</code></td>
             
 
@@ -5420,6 +5452,7 @@ naver.maps.Event.addListener(pano, &quot;pov_changed&quot;, function() {
     maxScale: 10,
     minZoom: 0,
     maxZoom: 4,
+    flightSpot: true,
     logoControl: true,
     logoControlOptions: {
         position: naver.maps.Position.BOTTOM_RIGHT
